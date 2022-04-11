@@ -156,4 +156,5 @@ def generateSentence():
     randChoiceNum = random.randint(3, 4)
     return testSentenceGen(randChoiceNum).lower()
             
-generateSentence()
+if __name__ == '__main__':
+    print(generateSentence())
