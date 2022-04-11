@@ -161,16 +161,20 @@ def rawSentenceGen(length):
 
 
 def generateSentence():
+    """Main function that generates our fully formatted sentence.
+
+    Returns:
+        String: "Quote" -Author
+    """
     genLists()
     tokenizeList(phraseList)
     taggedList = nltk.pos_tag(tokList, tagset="universal")
     sortList(taggedList)
     randChoiceNum = random.randint(2, 4)
     randAuthor = authorList[random.randint(0, len(authorList) - 1)]
-    return (
-        f'"{rawSentenceGen(randChoiceNum).lower().capitalize()}" -{randAuthor.strip()}'
-    )
+    return f'"{rawSentenceGen(randChoiceNum).lower().capitalize()}" -{randAuthor.strip().capitalize()}'
 
 
+# Test Running
 if __name__ == "__main__":
     print(generateSentence())

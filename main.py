@@ -121,7 +121,7 @@ async def oops(ctx):
 
 
 @bot.command()
-async def sentence(ctx):
+async def random(ctx):
     await ctx.channel.send(gen.generateSentence())
 
 
