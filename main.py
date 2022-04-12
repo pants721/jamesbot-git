@@ -16,12 +16,10 @@ bot = commands.Bot(command_prefix="$")
 phraseList = []
 authorList = []
 
-nonoWords = []
-
 
 @bot.event
 async def on_ready():
-    print("{0.user} is online.".format(bot))
+    print(f"{bot} is online.")
 
 
 def generateLists():
@@ -94,7 +92,7 @@ async def listPerson(ctx, person):
     embed = discord.Embed()
     for quote, author in dictionary.items():
         if author.lower() == f" {person.lower()}":
-            embed.add_field(name=f"{author}", value=f"{quote}", inline=False)
+            embed.add_field(name=f"{author.Capitalize()}", value=f"{quote}", inline=False)
     await ctx.channel.send(embed=embed)
 
 
@@ -104,20 +102,6 @@ async def last(ctx):
     await ctx.channel.send(
         f"{phraseList[len(phraseList) - 1]} -{authorList[len(authorList) - 1]}"
     )
-
-
-@bot.command()
-async def oops(ctx):
-    with open("advikStats.txt", "r") as f:
-        lines = f.readlines()
-        count = int(lines[0])
-        days = lines[1]
-    with open("advikStats.txt", "w") as f:
-        count += 1
-        days = "0"
-        f.write(f"{str(count)}\n")
-        f.write(days)
-    await ctx.channel.send("Stats have been updated")
 
 
 @bot.command()
