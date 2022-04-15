@@ -166,7 +166,6 @@ def generateSentence():
     Returns:
         String: "Quote" -Author
     """
-    genLists()
     tokenizeList(phraseList)
     taggedList = nltk.pos_tag(tokList, tagset="universal")
     sortList(taggedList)
@@ -177,4 +176,6 @@ def generateSentence():
 
 # Test Running
 if __name__ == "__main__":
+    genLists()
+    authorList = list(set(authorList))
     print(generateSentence())

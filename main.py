@@ -92,7 +92,9 @@ async def listPerson(ctx, person):
     embed = discord.Embed()
     for quote, author in dictionary.items():
         if author.lower() == f" {person.lower()}":
-            embed.add_field(name=f"{author.Capitalize()}", value=f"{quote}", inline=False)
+            embed.add_field(
+                name=f"{author.Capitalize()}", value=f"{quote}", inline=False
+            )
     await ctx.channel.send(embed=embed)
 
 
