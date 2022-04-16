@@ -1,8 +1,9 @@
-import random
 import discord
 from discord.ext import commands
 from discord.ext import tasks
 from dotenv import load_dotenv
+
+import random
 import os
 import os.path
 import csv
